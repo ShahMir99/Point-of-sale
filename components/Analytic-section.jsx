@@ -116,7 +116,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
             <Button className="bg-[#696cff] p-3">
               <Folder className="text-white" />
             </Button>
-            <MoreVertical className=" text-[#7a7a7a]" />
+            <MoreVertical className=" text-[#747373]" />
           </div>
           <div>
             <p className="text-[#999999] pb-2">Orders</p>
