@@ -61,12 +61,12 @@ export async function GET(req) {
         OR: [
           {
             code: {
-              startsWith: searchByWord,
+              contains: searchByWord,
             },
           },
           {
             name: {
-              startsWith: searchByWord,
+              contains: searchByWord,
             },
           },
         ],
@@ -76,6 +76,7 @@ export async function GET(req) {
 
     return NextResponse.json(products);
   } catch (err) {
+    console.log(err)
     return new NextResponse("Internal server error", { status: 500 });
   }
 }
