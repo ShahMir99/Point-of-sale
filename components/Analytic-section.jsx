@@ -105,7 +105,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           <div>
             <p className="text-[#999999] pb-2">Products</p>
             <h3 className="text-xl text-muted-foreground font-semibold  tracking-wide">
-              {stock}
+              {stock.length}
             </h3>
           </div>
         </div>
@@ -126,7 +126,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           </div>
         </div>
       </div>
-      <YealySection GraphData={GraphData} />
+      <YealySection stock={stock} />
     </div>
   );
 };
