@@ -6,9 +6,9 @@ export async function POST(req) {
   try {
     const user = await getCurrentUser();
     const body = await req.json();
+
     const { data, totalPrice, Received, Discount, custName } = body.order;
 
-    console.log(data)
 
     if (!user) {
       return new NextRequest("Unauthenticated", { status: 401 });
@@ -46,6 +46,7 @@ export async function POST(req) {
 }
 
 async function UpdateStock(productId , quantity) {
+
   try {
     const Findproduct = await Prisma.product.findUnique({
       where: {
@@ -61,6 +62,8 @@ async function UpdateStock(productId , quantity) {
         stock: Findproduct.stock - quantity,
       },
     });
+
+
   } catch (err) {
     console.log(err);
   }

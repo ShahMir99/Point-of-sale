@@ -3,6 +3,7 @@
 import ProductArray from "./ProductArray";
 import DateComp from "./DateComp";
 import { formatter } from "@/lib/utils";
+import CellActions from "./CellAction";
 
 
 export const columns = [
@@ -41,5 +42,10 @@ export const columns = [
     accessorKey: "createdAt",
     header: "Date",
     cell : ({row}) => <DateComp data={row.original}/>
+  },
+  {
+    accessorKey: "id",
+    header: "Actions",
+    cell : ({row}) => <CellActions data={row.original}/>
   }
 ];
