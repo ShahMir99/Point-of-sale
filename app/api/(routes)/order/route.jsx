@@ -50,15 +50,15 @@ export async function POST(req) {
 async function UpdateStock(productId , quantity) {
 
   try {
-    const Findproduct = await Prisma.product.findUnique({
+    const Findproduct = await Prisma.product.findFirst({
       where: {
         id: productId,
       },
     });
 
-    await Prisma.product.update({
+    await Prisma.product.updateMany({
       where: {
-        id: Findproduct.id,
+        id: productId
       },
       data: {
         stock: Findproduct.stock - quantity,
