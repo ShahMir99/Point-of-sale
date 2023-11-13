@@ -15,33 +15,32 @@ export async function POST(req) {
     }
 
     data.forEach(async (element) => {
+      console.log(element)
       await UpdateStock(element.id , element.quantity);
     });
 
 
-    // const order = await Prisma.order.create({
-    //   data: {
-    //     totalPrice,
-    //     Received,
-    //     Discount,
-    //     custName,
-    //     isPaid: true,
-    //     orderitems: {
-    //       create: data.map((item) => ({
-    //         productId : item.id,
-    //         name : item.name,
-    //         code : item.code,
-    //         price : item.price,
-    //         actualPrice : item.actualPrice,
-    //         quantity : item.quantity
-    //       })),
-    //     },
-    //   },
-    // });
+    const order = await Prisma.order.create({
+      data: {
+        totalPrice,
+        Received,
+        Discount,
+        custName,
+        isPaid: true,
+        orderitems: {
+          create: data.map((item) => ({
+            productId : item.id,
+            name : item.name,
+            code : item.code,
+            price : item.price,
+            actualPrice : item.actualPrice,
+            quantity : item.quantity
+          })),
+        },
+      },
+    });
 
-    console.log("hello")
-
-    return NextResponse.json("Decrement");
+    return NextResponse.json(order);
   } catch (err) {
     console.log(err);
     return new NextRequest("internal server error", { status: 500 });
@@ -71,30 +70,3 @@ async function UpdateStock(productId , quantity) {
     console.log(err);
   }
 }
-
-
-
-
-
-
-
-
-// const order = await Prisma.order.create({
-//   data: {
-//     totalPrice,
-//     Received,
-//     Discount,
-//     custName,
-//     isPaid: false,
-//     orderitems: {
-//       create: data.map((item) => ({
-//         product: {
-//           connect: {
-//             id: item.productId,
-//           },
-//         },
-//         quantity : item.quantity
-//       })),
-//     },
-//   },
-// });
