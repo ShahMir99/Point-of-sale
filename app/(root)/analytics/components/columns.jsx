@@ -2,6 +2,7 @@
 
 import ProductArray from "./ProductArray";
 import DateComp from "./DateComp";
+import { formatter } from "@/lib/utils";
 
 
 export const columns = [
@@ -17,13 +18,18 @@ export const columns = [
   {
     accessorKey: "totalPrice",
     header: "Total Price",
+    cell : ({row}) => (
+      <div>
+        {formatter.format(row.original.totalPrice)}
+      </div>
+    )
   },
   {
     accessorKey: "actual",
     header: "Profit",
     cell : ({row}) => (
       <div>
-        {row.original.totalPrice - row.original.actual}
+        {formatter.format(row.original.totalPrice - row.original.actual)}
       </div>
     )
   },

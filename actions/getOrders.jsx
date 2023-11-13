@@ -3,11 +3,7 @@ import Prisma from "@/lib/db-Provider";
 export const getOrders = async () => {
   const orders = await Prisma.order.findMany({
     include: {
-      orderitems: {
-        include: {
-          product: true,
-        },
-      },
+      orderitems : true
     },
     orderBy: {
       createdAt: "desc",
@@ -27,7 +23,7 @@ export const getOrders = async () => {
     let ActualOrderPrice = 0;
 
     for (const orderitems of order.orderitems) {
-      ActualOrderPrice += orderitems.quantity * orderitems.product.actualPrice;
+      ActualOrderPrice += orderitems.quantity * orderitems.actualPrice;
     }
 
     monthlyRevenue[months] = (monthlyRevenue[months] || 0) + revenueForOrder;
@@ -57,5 +53,6 @@ export const getOrders = async () => {
       GraphData[month].profit = monthlyRevenue[month] - monthlyProfit[month];
     }
   }
+
   return { orders, GraphData };
 };

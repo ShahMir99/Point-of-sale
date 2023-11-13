@@ -37,7 +37,8 @@ const NavSearch = () => {
       code : product.code,
       stock : product.stock,
       quantity : 1,
-      price : product.price
+      price : product.price,
+      actualPrice : product.actualPrice
     }
     cart.addItems(cartItem)
     setProducts([]);

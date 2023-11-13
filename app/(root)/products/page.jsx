@@ -1,5 +1,6 @@
 import Prisma from "@/lib/db-Provider"
 import ProductClient from "./components/ProductClient"
+import { formatter } from "@/lib/utils"
 
 
 const Products = async () => {
@@ -14,8 +15,8 @@ const Products = async () => {
     id : item.id,
     name : item.name,
     code : item.code,
-    price : item.price,
-    actualPrice : item.actualPrice,
+    price : formatter.format(item.price),
+    actualPrice : formatter.format(item.actualPrice),
     stock : item.stock
   }))
   

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import YealySection from "./Yealy-section";
+import { formatter } from "@/lib/utils";
 
 const AnalyticSection = ({ stock, GraphData, orders }) => {
   let date = new Date();
@@ -49,7 +50,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           <div>
             <p className="text-[#999999] pb-2">Sales</p>
             <h3 className="text-lg text-muted-foreground font-semibold  tracking-wide">
-              {GraphData[month].total} PKR
+              {formatter.format(GraphData[month].total)}
             </h3>
           </div>
           {PPValue > -1 ? (
@@ -77,7 +78,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           <div>
             <p className="text-[#999999] pb-2">Profit</p>
             <h3 className="text-lg text-muted-foreground font-semibold tracking-wide">
-              {GraphData[month].profit} PKR
+            {formatter.format(GraphData[month].profit)}
             </h3>
           </div>
           {SPValue > -1 ? (

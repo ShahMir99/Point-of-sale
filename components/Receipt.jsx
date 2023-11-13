@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
+import { formatter } from "@/lib/utils";
 
 const Receipt = ({ componentToPrint, cart, totalPrice, Received, Discount }) => {
   return (
@@ -51,19 +52,19 @@ const Receipt = ({ componentToPrint, cart, totalPrice, Received, Discount }) => 
         <div className="flex items-center justify-end">
           <p className="text-xs">Total Amount :</p>&nbsp;
           <h3 className="text-xs font-semibold text-muted-foreground">
-            {totalPrice} PKR
+            {formatter.format(totalPrice)}
           </h3>
         </div>
         <div className="flex items-center justify-end">
           <p className="text-xs">Received :</p>&nbsp;
           <h3 className="text-xs font-semibold text-muted-foreground">
-            {Received} PKR
+            {formatter.format(Received)}
           </h3>
         </div>
         <div className="flex items-center justify-end">
           <p className="text-xs">Discount :</p>&nbsp;
           <h3 className="text-xs font-semibold text-muted-foreground">
-            {Discount} PKR
+            {formatter.format(Discount)}
           </h3>
         </div>
       </div>

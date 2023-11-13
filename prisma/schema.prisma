@@ -32,7 +32,6 @@ model Product {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  orderItems OrderItems[]
 }
 
 model Order {
@@ -52,8 +51,11 @@ model OrderItems {
   orderId   String
   order     Order    @relation(fields: [orderId], references: [id])
   productId String
+  name String
+  price Int
+  actualPrice Int
+  code String
   quantity  Int
-  product   Product  @relation(fields: [productId], references: [id] , onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

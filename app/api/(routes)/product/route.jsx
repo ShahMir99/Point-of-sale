@@ -50,11 +50,9 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url);
     const searchByWord = searchParams.get("search");
 
-
-    if(!searchByWord){
-      return NextResponse.json([])
+    if (!searchByWord) {
+      return NextResponse.json([]);
     }
-
 
     const products = await Prisma.product.findMany({
       where: {
@@ -62,21 +60,22 @@ export async function GET(req) {
           {
             code: {
               contains: searchByWord,
+              mode: 'insensitive'
             },
           },
           {
             name: {
               contains: searchByWord,
+              mode: 'insensitive'
             },
           },
         ],
       },
     });
 
-
     return NextResponse.json(products);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return new NextResponse("Internal server error", { status: 500 });
   }
 }

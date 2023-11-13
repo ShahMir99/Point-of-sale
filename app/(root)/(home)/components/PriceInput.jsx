@@ -1,6 +1,7 @@
 "use client"
 
 import { Input } from "@/components/ui/input"
+import { formatter } from "@/lib/utils"
 
 const PriceInput = ({data}) => {
 

@@ -35,7 +35,11 @@ const ClientHome = () => {
 
   const placeOrder = async () => {
     const data = cart?.items.map((item) => ({
-      productId: item.id,
+      id: item.id,
+      name : item.name,
+      code : item.code,
+      price : item.price,
+      actualPrice : item.actualPrice,
       quantity: item.quantity,
     }));
 

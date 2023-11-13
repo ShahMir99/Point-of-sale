@@ -8,12 +8,14 @@ export async function POST(req) {
     const body = await req.json();
     const { data, totalPrice, Received, Discount, custName } = body.order;
 
+    console.log(data)
+
     if (!user) {
       return new NextRequest("Unauthenticated", { status: 401 });
     }
 
     data.forEach(async (element) => {
-      await UpdateStock(element.productId , element.quantity);
+      await UpdateStock(element.id , element.quantity);
     });
 
     const order = await Prisma.order.create({
@@ -22,14 +24,14 @@ export async function POST(req) {
         Received,
         Discount,
         custName,
-        isPaid: false,
+        isPaid: true,
         orderitems: {
           create: data.map((item) => ({
-            product: {
-              connect: {
-                id: item.productId,
-              },
-            },
+            productId : item.id,
+            name : item.name,
+            code : item.code,
+            price : item.price,
+            actualPrice : item.actualPrice,
             quantity : item.quantity
           })),
         },
@@ -63,3 +65,30 @@ async function UpdateStock(productId , quantity) {
     console.log(err);
   }
 }
+
+
+
+
+
+
+
+
+// const order = await Prisma.order.create({
+//   data: {
+//     totalPrice,
+//     Received,
+//     Discount,
+//     custName,
+//     isPaid: false,
+//     orderitems: {
+//       create: data.map((item) => ({
+//         product: {
+//           connect: {
+//             id: item.productId,
+//           },
+//         },
+//         quantity : item.quantity
+//       })),
+//     },
+//   },
+// });

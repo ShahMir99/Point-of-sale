@@ -1,5 +1,6 @@
 "use client"
 
+import { formatter } from '@/lib/utils'
 import { Button } from './ui/button'
 
 const YealySection = ({stock}) => {
@@ -20,7 +21,7 @@ const investedPrice = stock.reduce((acc , item) => {
         </div>
         <div>
           <h3 className="text-2xl text-muted-foreground font-[600] tracking-wider mt-1">
-           {investedPrice} PKR
+          {formatter.format(investedPrice)}
           </h3>
         </div>
       </div>
