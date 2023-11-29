@@ -14,7 +14,7 @@ const UserButton = ({ user }) => {
   const router = useRouter()
 
   return (
-    <div className="ml-auto flex items-center gap-5">
+    <div className="md:ml-auto flex items-center gap-5">
       <div>
       <Link href="https://github.com/ShahMir99" target="_blank">
         <Github className="w-6 h-6 text-muted-foreground cursor-pointer"/>

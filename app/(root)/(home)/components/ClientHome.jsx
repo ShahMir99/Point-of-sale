@@ -84,8 +84,8 @@ const ClientHome = () => {
         <div className="mt-5 min-h-[270px] max-h-[270px] overflow-y-auto">
           <DataTable columns={columns} data={cart.items} />
         </div>
-        <div className="mt-5 w-full grid grid-cols-5 gap-10">
-          <div className="col-span-3 flex flex-col gap-5">
+        <div className="flex gap-x-4 w-full">
+          <div className="flex flex-col flex-1 gap-y-4">
             <Input
               placeholder="Customer name"
               value={custName}
@@ -96,12 +96,12 @@ const ClientHome = () => {
               value="Thanks for shopping from computer surgeon"
             />
           </div>
-          <div className="col-span-2 space-y-1">
-            <div className="flex items-center gap-2 justify-between text-sm">
+          <div className="flex flex-col gap-y-2">
+            <div className="flex items-center gap-3 text-sm">
               <h3>Sub Total :</h3>
               <Input value={totalPrice} className="w-[100px]" type="number" />
             </div>
-            <div className="flex items-center justify-between gap-2 text-sm">
+            <div className="flex items-center gap-3 text-sm">
               <h3>Received :</h3>
               <Input
                 type="number"
@@ -110,14 +110,14 @@ const ClientHome = () => {
                 onChange={(e) => setdiscount(Number(e.target.value))}
               />
             </div>
-            <div className="flex items-center justify-between gap-2 text-sm">
+            <div className="flex items-center gap-3 text-sm">
               <h3>Discount :</h3>
               <Input value={Discount} className="w-[100px]" type="number" />
             </div>
           </div>
         </div>
       </div>
-      <div className="relative p-5 col-span-2 min-h-[515px] max-h-[515px] overflow-y-auto bg-card border text-muted-foreground shadow-md rounded-md">
+      <div className="flex flex-col p-5 col-span-2 min-h-[515px] max-h-[515px] overflow-y-auto bg-card border text-muted-foreground shadow-md rounded-md">
         <Receipt
           componentToPrint={componentToPrint}
           cart={cart}

@@ -51,7 +51,7 @@ const page = async () => {
 
   return (
     <>
-      <div className="grid lg:grid-cols-12 grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-12 grid-cols-1 gap-3">
         <InfoBox today={todaySalesTotal} lastday={yesterdaySalesTotal} />
         <AnalyticSection stock={stock} GraphData={GraphData} orders={orders} />
         <div className="bg-card col-span-full lg:col-span-8 shadow-md rounded-md">

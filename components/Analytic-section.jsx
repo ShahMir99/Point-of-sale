@@ -49,7 +49,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           </div>
           <div>
             <p className="text-[#999999] pb-2">Sales</p>
-            <h3 className="text-lg text-muted-foreground font-semibold  tracking-wide">
+            <h3 className="text-md text-muted-foreground font-semibold  tracking-wide">
               {formatter.format(GraphData[month].total)}
             </h3>
           </div>
@@ -77,7 +77,7 @@ const AnalyticSection = ({ stock, GraphData, orders }) => {
           </div>
           <div>
             <p className="text-[#999999] pb-2">Profit</p>
-            <h3 className="text-lg text-muted-foreground font-semibold tracking-wide">
+            <h3 className="text-md text-muted-foreground font-semibold tracking-wide">
             {formatter.format(GraphData[month].profit)}
             </h3>
           </div>

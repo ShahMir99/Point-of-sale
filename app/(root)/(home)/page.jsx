@@ -6,7 +6,7 @@ export const metadata = {
 
 const page = async () => {
   return (
-    <div className="w-full grid grid-cols-5 gap-5 ">
+    <div className="flex flex-col gap-y-5 w-full md:grid md:grid-cols-5 md:gap-5 ">
       <ClientHome />
     </div>
   );

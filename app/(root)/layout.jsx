@@ -8,28 +8,28 @@ export default async function RootLayout({ children }) {
   const user = await getCurrentUser();
 
   const checkUser = await Prisma.user.findFirst({
-    where : {
-      role : "admin"
-    }
-  })
+    where: {
+      role: "admin",
+    },
+  });
 
-  if(!checkUser){
+  if (!checkUser) {
     return redirect("/auth/register");
   }
 
   if (!user?.id) {
-   return redirect("/auth");
+    return redirect("/auth");
   }
 
   return (
     <>
       <div className="w-full h-screen bg-background overflow-hidden flex flex-row">
-        <div className="relative w-72 p-5 bg-card shadow-md ">
+        <div className="hidden lg:block lg:w-72 h-full p-5 bg-card shadow-md">
           <SideMenu />
         </div>
         <div className="flex-1 w-full h-full p-5 overflow-y-auto">
-        <Navbar />
-        {children}
+          <Navbar />
+          {children}
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ const investedPrice = stock.reduce((acc , item) => {
   return (
     <div className="bg-card w-full p-7 rounded-md shadow-md flex flex-col gap-y-5">
         <div>
-          <h4 className="font-semibold text-black pb-2 tracking-wider">
+          <h4 className="font-semibold text-muted-foreground pb-2 tracking-wider">
             Products Details
           </h4>
           <Button className="h-8 uppercase font-[600] tracking-wider bg-[#ffebc0] text-[#ffc23d] shadow-none hover:bg-primary">

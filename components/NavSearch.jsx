@@ -47,10 +47,10 @@ const NavSearch = () => {
   return (
     <div className="flex items-center gap-3 w-full">
       <Search className="w-6 h-6 text-muted-foreground" />
-      <div className=" w-[50%] relative text-muted-foreground">
+      <div className=" md:w-[50%] w-[80%] relative text-muted-foreground">
         <Input
           className="w-full text-md placeholder:text-md "
-          placeholder="Search by code"
+          placeholder="Search"
           onChange={(e) => searchByKey(e.target.value)}
         />
         {products.length ? (

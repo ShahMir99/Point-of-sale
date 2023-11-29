@@ -11,12 +11,7 @@ import { formatter } from "@/lib/utils";
 
 const Receipt = ({ componentToPrint, cart, totalPrice, Received, Discount }) => {
   return (
-    <div ref={componentToPrint} className="space-y-3 w-full" style={{
-      '@media print': {
-        width: '50mm',  // A4 width
-        height: '50mm', // A4 height
-      },
-    }}>
+    <div ref={componentToPrint} className="space-y-3 flex flex-col w-full flex-1">
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-2xl text-muted-foreground">INVOICE</h1>
         <h3 className="font-semibold text-muted-foreground">
@@ -48,7 +43,7 @@ const Receipt = ({ componentToPrint, cart, totalPrice, Received, Discount }) => 
           </TableBody>
         </Table>
       </div>
-      <div className="space-y-1">
+      <div className="space-y-1 flex-1">
         <div className="flex items-center justify-end">
           <p className="text-xs">Total Amount :</p>&nbsp;
           <h3 className="text-xs font-semibold text-muted-foreground">

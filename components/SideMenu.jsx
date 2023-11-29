@@ -1,6 +1,14 @@
 "use client";
 
-import { BoxIcon, Computer, DollarSign, FolderPlus, Settings } from "lucide-react";
+import {
+  Box,
+  BoxIcon,
+  Computer,
+  DollarSign,
+  FolderPlus,
+  Settings,
+  ToggleLeft,
+} from "lucide-react";
 import { useParams, usePathname } from "next/navigation";
 import SidebarItems from "./SidebarItems";
 
@@ -41,19 +49,21 @@ const SideMenu = () => {
     },
   ];
   return (
-    <div className="w-full flex-col space-y-2">
-    <h2 className="my-3 text-2xl font-bold text-center text-muted-foreground">Point of sale</h2>
-    <p className="text-sm pb-3 px-2 text-muted-foreground">Menu</p>
-      {route.map((route) => (
-        <SidebarItems
-          key={route.href}
-          href={route.href}
-          label={route.label}
-          pathname={route.pathname}
-          Icon={route.icon}
-        />
-      ))}
-    </div>
+      <div className=" w-full flex-col space-y-2">
+        <h2 className="relative my-3 text-2xl font-bold text-center text-muted-foreground">
+          Point of sale
+        </h2>
+        <p className="text-sm pb-3 px-2 text-muted-foreground">Menu</p>
+        {route.map((route) => (
+          <SidebarItems
+            key={route.href}
+            href={route.href}
+            label={route.label}
+            pathname={route.pathname}
+            Icon={route.icon}
+          />
+        ))}
+      </div>
   );
 };
 
