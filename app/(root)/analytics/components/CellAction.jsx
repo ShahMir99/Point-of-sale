@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
-import {MoreHorizontal, Trash } from "lucide-react";
+import {MoreHorizontal, Pencil, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const CellActions = ({ data }) => {
@@ -22,6 +22,22 @@ const CellActions = ({ data }) => {
       await axios.delete(`/api/order/${data.id}`);
       toast({
         title: "Order Deleted Successfully",
+      });
+      router.refresh();
+    } catch (err) {
+      console.log(err);
+      toast({
+        variant: "destructive",
+        title: "Something went wrong",
+      });
+    }
+  };
+
+  const HandleStatus = async () => {
+    try {
+      await axios.patch(`/api/order/${data.id}`);
+      toast({
+        title: "Order Status Changes Successfully",
       });
       router.refresh();
     } catch (err) {
@@ -46,6 +62,10 @@ const CellActions = ({ data }) => {
         <DropdownMenuItem onClick={OnDelete}>
           <Trash className="w-4 h-4 mr-4 " />
           Delete
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={HandleStatus}>
+          <Pencil className="w-4 h-4 mr-4 " />
+          Status
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
